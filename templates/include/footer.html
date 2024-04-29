@@ -1,0 +1,138 @@
+{% load static %} 
+<div class="cta4">
+  <div class="container">
+    <div class="row cta4-area align-items-center">
+      <div class="col-lg-7">
+        <div class="headding2-w">
+          <h2>Подписывайтесь На Нашу Новостную Рассылку!</h2>
+          <div class="space16"></div>
+          <p>Наша культура поощряет и стремится к инновациям, творчеству, юридической экспертизе и ориентирована на клиента. Ежедневно мы улучшаем нашу предпринимательскую среду </p>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="cta-form2">
+          <form action="#"></form>
+          <input type="email" placeholder="Enter your Email">
+          <div class="cta2-btn">
+            <button type="submit" class="theme-btn7"><span class="span-btn">Subscribe</span> <span class="arrow"><i class="fa-regular fa-arrow-right"></i></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+####################################################################################
+<footer class="footer-area4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6">
+          <div class="single-footer mr50">
+            <div class="site-logo home1-site-logo">
+              <a href="{% url 'index' %}"
+                ><img src="{{ settings.logo.url }}" alt="" style="height: 60px;width: 60px;object-fit: cover; border-radius: 50%;"/>
+              </a>
+            </div>
+            <div class="space30"></div>
+           <div class="headding1-w">
+            <p>
+              Наша преданная своему делу команда всегда готова помочь вам разобраться в судебном процессе и добиться заслуженной компенсации. Запишитесь на бесплатную консультацию к нашим опытным юристам сегодня.
+            </p>
+           </div>
+          </div>
+          <div class="space24"></div>
+          <div class="social">
+            <ul>
+              <li>
+                <a ><i class="fa-brands fa-facebook-f"></i></a>
+              </li>
+              <li>
+                <a ><i class="fa-brands fa-youtube"></i></a>
+              </li>
+              <li>
+                <a ><i class="fa-brands fa-whatsapp"></i></a>
+              </li>
+              <li>
+                <a ><i class="fa-brands fa-instagram"></i></a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <div class="col-lg col-sm-6 headding2">
+          <div class="single-footer">
+            <h3>
+              Компания
+            </h3>
+            <div class="space10"></div>
+            <div>
+              <ul>
+                <li><a href="{% url 'index' %}"> Главная страница</a></li>
+                <li><a href="{% url 'team' %}"> Наша команда</a></li>
+                <li><a href="{% url 'blog' %}"> Новости</a></li>
+                <li><a href="{% url 'contact' %}"> Наши контакты</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg col-sm-6 headding2">
+          <div class="single-footer">
+            <h3>
+              Области Практики
+            </h3>
+            <div class="space10"></div>
+            <div>
+              <ul>
+                <li><a>Бизнес Закон</a></li>
+                <li><a> Личный вред</a></li>
+                <li><a>Семейное право</a></li>
+                <li><a> Уголовная защита</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 headding2">
+          <div class="single-footer">
+            <h3>
+              Контактная Информация
+            </h3>
+            <div class="space10"></div>
+            <div class="footer-contact-box">
+              <div class="footer-contact-icon">
+                <a ><i class="fa-light fa-phone-volume"></i></a>
+              </div>
+              <div class="footer-contact-hadding">
+                <a >{{ settings.phone }}</a>
+              </div> 
+            </div>
+            <div class="space10"></div>
+
+            <div class="footer-contact-box">
+              <div class="footer-contact-icon">
+                <a ><i class="fa-regular fa-envelope"></i></a>
+              </div>
+              <div class="footer-contact-hadding">
+                <a>{{ settings.email }}</a>
+              </div>
+            </div>
+          </div>
+          <div class="space24"></div>
+          <div class="single-footer">
+            <h3>
+              Наше Место Нахождения
+            </h3>
+            <div class="footer-contact-box">
+              <div class="footer-contact-icon">
+                <a ><i class="fa-regular fa-location-dot"></i></a>
+              </div>
+              <div class="footer-contact-hadding">
+                <a>{{ settings.locate }}</a>
+              </div> 
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="space60"></div>
+    </div>
+  </footer>
