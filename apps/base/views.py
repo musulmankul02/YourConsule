@@ -9,7 +9,7 @@ def index(request):
     settings = base.Settings.objects.latest("id")
     service = base.Service.objects.all().order_by('?')[:3]
     review = base.Review.objects.all()
-    slide = base.Slide.objects.all()
+    slide = base.Slide.objects.all().order_by("id")[:3]
     numbers = base.Numbers.objects.latest("id")
     # contacts
 
@@ -55,7 +55,7 @@ def about(request):
     about = secondary_models.About.objects.latest('id')
     years = secondary_models.Year.objects.all()
     history = secondary_models.History.objects.all()
-    team = secondary_models.Team.objects.all()
+    team = secondary_models.Team.objects.all().order_by("?")[:4]
     return render(request, "base/about.html", locals())
 
 def blog(request):
@@ -142,3 +142,12 @@ def case_study_details(request):
     # base
     settings = base.Settings.objects.latest("id")
     return render(request, "base/case-study-details.html", locals())
+
+def blog_details(request):
+    # base
+    settings = base.Settings.objects.latest("id")
+    news = secondary_models.News.objects.all().order_by('?')[:2]
+    review = base.Review.objects.latest("id")
+    # secondary
+    singleparts = secondary_models.SingleParts.objects.latest("id")
+    return render(request, "base/blog_details.html", locals())

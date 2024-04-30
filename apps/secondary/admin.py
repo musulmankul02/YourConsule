@@ -17,6 +17,11 @@ class TeamFilterAdmin(admin.ModelAdmin):
     list_filter = ('title', 'work')
     search_fields = ('title', 'work')
 
+class SinglePartsFilterAdmin(admin.ModelAdmin):
+    list_filter = ('title', 'descriptions')
+    search_fields = ('title', 'descriptions')
+
+admin.site.register(secondary.SingleParts, SinglePartsFilterAdmin)
 admin.site.register(secondary.About, AboutFilterAdmin)
 admin.site.register(secondary.News, NewsFilterAdmin)
 admin.site.register(secondary.History, HistoryFilterAdmin)

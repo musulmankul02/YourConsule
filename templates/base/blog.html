@@ -289,10 +289,10 @@
   
                     <div class="headding-area">
                       <a href="#" class="date"><img src="{% static 'assets/img/icons/date.png' %}" alt=""> 10 October 2024</a>
-                      <h5><a href="blog-details.html">{{ news.descriptions }}</a></h5>
-                      <p>{{ news.descriptions2 }}</p>
+                      <h5><a href="{% url 'blog_details' %}">{{ news.descriptions }}</a></h5>
+                      <p>{{ news.descriptions2|truncatewords:10 }}</p>
   
-                      <a href="blog-details.html" class="learn">Learn More <span><i class="fa-regular fa-arrow-right"></i></span></a>
+                      <a href="{% url 'blog_details' %}" class="learn">Learn More <span><i class="fa-regular fa-arrow-right"></i></span></a>
                     </div>
                   </div>
                 </div>

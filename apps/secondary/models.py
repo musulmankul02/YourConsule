@@ -23,10 +23,13 @@ class About(models.Model):
 
 class News(models.Model):
     descriptions = models.TextField(
-        verbose_name="Первое описание"
+        verbose_name="Начало"
     )
     descriptions2 = models.TextField(
-        verbose_name="Второе описание"
+        verbose_name="Середина"
+    )
+    descriptions3 = models.TextField(
+        verbose_name="Конец"
     )
     image = ResizedImageField(
         force_format = "WEBP",
@@ -96,3 +99,26 @@ class Team(models.Model):
     class Meta:
         verbose_name = "Наши юристы"
         verbose_name_plural = "Наш юрист"
+
+class SingleParts(models.Model):
+    image = ResizedImageField(
+        force_format = "WEBP",
+        quality = 100,
+        upload_to="image/",
+        verbose_name="Фотография"
+    )
+    title = models.CharField(
+        max_length=255,
+        verbose_name='Название'
+    )
+    descriptions = RichTextField(
+        verbose_name="Описание"
+    )
+    video = models.URLField(
+        verbose_name="Видео"
+    )
+
+    def __str__(self):
+        return f"{self.title} - {self.descriptions}"
+    class Meta:
+        verbose_name_plural = "Одиночные детали"

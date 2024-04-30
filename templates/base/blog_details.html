@@ -3,7 +3,7 @@
 {% block content %}
  
     <!--=====JQUERY=======-->
-    <script src="assets/js/jquery-3-6-0.min.js"></script>
+    <script src="{% static 'assets/js/jquery-3-6-0.min.js' %}"></script>
   </head>
 
   <body class="body4">
@@ -21,7 +21,7 @@
                     
                   </span>
                   <span class="logo animated fade-in">                
-                       <img src="assets/img/logo/footer-logo5.png" alt="">            
+                       <img src="{% static 'assets/img/logo/footer-logo5.png' %}" alt="">            
                   </span>
               </div>
           </div>
@@ -53,10 +53,10 @@
               <div class="col-12">
                 <div class="mobile-header-elements">
                   <div class="mobile-logo">
-                    <a href="index1.html"><img src="assets/img/logo/mobile-logo.png" alt="" /></a>
+                    <a href="index1.html"><img src="{% static 'assets/img/logo/mobile-logo.png' %}" alt="" /></a>
                   </div>
                   <div class="mobile-logo-unick">
-                    <img src="assets/img/logo/header-logo1.svg" alt="">
+                    <img src="{% static 'assets/img/logo/header-logo1.svg' %}" alt="">
                   </div>
                   <div class="mobile-nav-icon">
                     <i class="fa-solid fa-bars"></i>
@@ -71,7 +71,7 @@
               <i class="fa-solid fa-xmark"></i>
             </div>
             <div class="mobile-logo-unick">
-              <img src="assets/img/logo/header-logo1.svg" alt="">
+              <img src="{% static 'assets/img/logo/header-logo1.svg' %}" alt="">
             </div>
             <div class="mobile-nav">
         
@@ -239,12 +239,12 @@
                 <div class="row">
                     <div class="col-lg-6 m-auto text-center">
                         <div class="headding">
-                            <h1>Statute of Limitations in Personal Injury Lawsuits</h1>
+                            <h1>{{ singleparts.title }}</h1>
                             
                             <div class="list-area">
-                                <a href="index.html">Home</a>
+                                <a href="{% url 'index' %}">Главная страница</a>
                                 <p class="icon"><i class="fa-regular fa-angle-right"></i></p>
-                                <p class="page-text">Statute of Limitations in Personal Injury Lawsuits</p>
+                                <p class="page-text">{{ singleparts.title }}</p>
                             </div>
                         </div>
                     </div>
@@ -263,32 +263,23 @@
                             <article>
                                 <div class="service-single-post">
                                     <div class="image-area">
-                                        <img src="assets/img/service/service-details-img1.png" alt="">
+                                        <img src="{% static 'assets/img/service/service-details-img1.png' %}" alt="">
 
                                         <div class="shapes aniamtion-key-1">
-                                            <img src="assets/img/shapes/about4-shape.png" alt="">
+                                            <img src="{% static 'assets/img/shapes/about4-shape.png' %}" alt="">
                                         </div>
                                     </div>
 
-                                    <div class="blog-details-author-info">
-                                        <ul>
-                                            <li class="author-images-area">
-                                                <span class="img"><img src="assets/img/blog/blog-details-icon-img.png" alt=""></span>
-                                                <a href="#" class="author-text">Alex Robartson</a>
-                                            </li>
-                                            <li><a href="#"><img src="assets/img/icons/blog-details-icon1.png" alt=""> <span>8/01/2023</span></a></li>
-                                            <li><a href="#"><img src="assets/img/icons/blog-details-icon2.png" alt=""> <span>Legal Defense Expert</span></a></li>
-                                            <li><a href="#"><img src="assets/img/icons/blog-details-icon3.png" alt=""> <span>2 Comments</span></a></li>
-                                        </ul>
-                                    </div>
+
 
                                     <div class="space24"></div>
                                     <div class="headding4">
-                                        <h3>Statute of Limitations Personal Injury Lawsuits</h3>
+                                        <h3>
+                                          {{ news.descriptions }}</h3>
                                         <div class="space16"></div>
-                                        <p>Our practice encompasses an extensive array of criminal charges, ranging from  our best law misdemeanors to serious felonies. Whether it's DUI offenses, drug-related charges, assault of allegations, white-collar crimes, or more complex cases, our attorneys bring forth a wealth.</p>
+                                        <p>{{ news.descriptions2 }}</p>
                                         <div class="space16"></div>
-                                        <p>We prioritize open communication, ensuring that our clients are fully informed about their an legal options, potential consequences, an the strategic pathways we chart for their defense.</p>
+                                        <p>{{ news.descriptions3 }}</p>
                                     </div>
 
                                     <div class="space30"></div>
@@ -296,21 +287,21 @@
                                     <div class="commnet-area-all">
                                         <div class="commnet-top-area">
                                             <div class="commnet-icon">
-                                                <img src="assets/img/icons/blog-details-commnt.png" alt="">
+                                                <img src="{% static 'assets/img/icons/blog-details-commnt.png' %}" alt="">
                                             </div>
                                             <div class="commnet-prea">
-                                                <p>"Navigating the complexities of divorce law requires a lawyer legal compassionate advocate who understands your unique law to best service situation, our dedicated divorce lawyers.</p>
+                                                <p>{{ review.message|safe }}</p>
                                             </div>
                                         </div>
                                         <div class="commnet-bottom-area">
                                             <div class="image">
                                                 <div class="">
-                                                    <img src="assets/img/blog/blog-details-commnet-img.png" alt="">
+                                                    <img src="{{ review.image.url }}" alt="">
                                                 </div>
                                             </div>
                                             <div class="headding">
-                                                <h5><a href="#">Alexander Arnold</a></h5>
-                                                <p>Owner Lawsy Lawyer</p>
+                                                <h5><a href="#">{{ review.title }}</a></h5>
+                                                <p>{{ review.profession }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -322,23 +313,23 @@
                             <article>
                                 <div class="service-single-post">
                                     <div class="headding4">
-                                        <h3>Exploring Negligence in Personal Injury Claims</h3>
+                                        <h3>{{ singleparts.title }}</h3>
                                         <div class="space16"></div>
-                                        <p>Personal injury law encompasses a wide spectrum of cases where individuals have suffered harm due to the negligence, recklessness, or intentional actions of others. From car accidents and slip-and-fall incidents to medical malpractice and product liability claims, these cases.</p>
+                                        <p>{{ singleparts.descriptions }}</p>
                                     </div>
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="space40"></div>
                                                 <div class="image">
-                                                    <img src="assets/img/service/service-details-img2.png" alt="">
+                                                    <img src="{{ singleparts.image.url }}" alt="">
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <div class="space40"></div>
-                                                <div class="video-image-area popup-youtube " href="https://www.youtube.com/watch?v=Y8XpQpW5OVY">
+                                                <div class="video-image-area popup-youtube " href="{{ singleparts.video.url }}">
                                                     <div class="image">
-                                                        <img src="assets/img/service/service-details-img3.png" alt="">
+                                                        <img src="{{ singleparts.image.url }}" alt="">
                                                     </div>
                                                     <a href="#" class="video-btn"><i class="fa-solid fa-play"></i></a>
                                                 </div>
@@ -349,112 +340,49 @@
                                 </div>
                             </article>
 
-                            <div class="details-border"></div>
-
-                            <div class="blog-details-social-area-all">
-                                <div class="tags-all">
-                                    <ul>
-                                        <li class="titel">Our Tags:</li>
-                                        <li><a href="#">#Legal Warriors</a></li>
-                                        <li><a href="#">#Legal Defense Expert</a></li>
-                                    </ul>
-                                </div>
-                                <div class="social-icons">
-                                    <ul>
-                                        <li class="titel">Share:</li>
-                                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                        <li><a href="#"><i class="fa-brands fa-google-plus-g"></i></a></li>
-                                        <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                                        <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="details-border"></div>
-
-
-                            <div class="commnet-boxs-all">
-                              <h3>Comments (2)</h3>
-                              <div class="commnet-single-box">
-                                <div class="author-area">
-                                    <div class="image">
-                                        <img src="assets/img/blog/commnt-box-img1.png" alt="">
-                                    </div>
-                                    <div class="headding">
-                                        <h5><a href="#">Matthew Larson</a></h5>
-                                        <p>15 March, 2023</p>
-                                    </div>
-                                </div>
-                                <p class="pera">In the realm of defense, our proficiency transcends the mere understanding of statutes; it delves into the nuanced artistry of legal advocacy. We are architects of defense, law sculpting compelling narratives that resonate with judges and juries, compelling them.</p>
-
-                                <a href="#" class="reply-btn"><span><i class="fa-solid fa-reply"></i></span> Reply</a>
-                              </div>
-
-                              <div class="commnet-single-box">
-                                <div class="author-area">
-                                    <div class="image">
-                                        <img src="assets/img/blog/commnt-box-img2.png" alt="">
-                                    </div>
-                                    <div class="headding">
-                                        <h5><a href="#">Ben Ducket</a></h5>
-                                        <p>16 March, 2023</p>
-                                    </div>
-                                </div>
-                                <p class="pera">In the realm of defense, our proficiency transcends the mere understanding of statutes; it delves into the nuanced artistry of legal advocacy. We are architects of defense, law sculpting compelling narratives that resonate with judges and juries, compelling them.</p>
-
-                                <a href="#" class="reply-btn"><span><i class="fa-solid fa-reply"></i></span> Reply</a>
-                              </div>
-
-                            </div>
 
 
                             <div class="details-border"></div>
-
 
                             <div class="details-contact-form">
-                                <h6>Send us a message</h6>
-                                <p>Provide clear contact information, including phone number, email, and address.</p>
+                                <h6>ОСТАВЬТЕ ОТЗЫВ</h6>
+                                <p>Ваши отзывы - наша лучшая награда.
+                                  Спасибо, что делитесь своим опытом работы с нами и помогаете нам стать лучше.</p>
                                 <form action="#">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="input-area">
-                                                <input type="text" placeholder="First Name">
+                                                <input type="text" placeholder="Имя">
                                             </div>
                                         </div>
 
                                         <div class="col-lg-6">
                                             <div class="input-area">
-                                                <input type="text" placeholder="Last Name">
+                                                <input type="text" placeholder="Фамилия">
                                             </div>
                                         </div>
 
 
                                         <div class="col-lg-6">
                                             <div class="input-area">
-                                                <input type="email" placeholder="Email">
+                                                <input type="email" placeholder="Адрес электронной почты">
                                             </div>
                                         </div>
 
                                         <div class="col-lg-6">
                                             <div class="input-area">
-                                                <input type="number" placeholder="Phone">
+                                                <input type="number" placeholder="Номер телефона">
                                             </div>
                                         </div>
 
                                         <div class="col-lg-12">
                                             <div class="input-area">
-                                                <input type="text" placeholder="Subject">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <div class="input-area">
-                                                <textarea cols="30" rows="3" placeholder="Message"></textarea>
+                                                <textarea cols="30" rows="3" placeholder="Ваш отзыв"></textarea>
                                             </div>
 
                                             <div class="space30"></div>
                                             <div class="from-btn">
-                                                <button type="submit" class="theme-btn7"><span class="span-btn">Submit Now </span> <span class="arrow"><i class="fa-regular fa-arrow-right"></i></span></button>
+                                                <button type="submit" class="theme-btn7"><span class="span-btn">Отправить отзыв</span> <span class="arrow"><i class="fa-regular fa-arrow-right"></i></span></button>
                                             </div>
                                         </div>
 
@@ -482,46 +410,29 @@
               <div class="row">
                 <div class="col-lg-6 m-auto text-center">
                   <div class="headding4">
-                    <h2>Read Our More Blog</h2>
+                    <h2>Прочтите Наши Дополнительние Новости</h2>
                   </div>
                 </div>
               </div>
 
               <div class="space30"></div>
               <div class="row">
+                {% for news in news %}
                 <div class="col-lg-6">
-                  <div class="blog4-box">
+                  <div class="blog4-box" data-aos="zoom-in-up" data-aos-duration="900">
                     <div class="blog4-img">
-                      <img src="assets/img/blog/blog4-img1.png" alt="">
+                      <img src="{{ news.image.url }}" alt="">
                     </div>
 
                     <div class="headding-area">
-                      <a href="#" class="date"><img src="assets/img/icons/date.png" alt=""> 10 October 2024</a>
-                      <h5><a href="blog-details.html">The Role of a Criminal Defense Our Best Attorney</a></h5>
-                      <p>Our team of dedicated criminal defense attorneys is here to has provide unwavering support and expert legal guidance lawyer.</p>
-
-                      <a href="blog-details.html" class="learn">Learn More <span><i class="fa-regular fa-arrow-right"></i></span></a>
+                      <a href="#" class="date"><img src="{% static 'assets/img/icons/date.png' %}" alt=""> 10 October 2024</a>
+                      <h5><a href="blog-details.html">{{ news.descriptions }}</a></h5>
+                      <p>{{ news.descriptions2|truncatewords:10 }}</p>
+                      
                     </div>
                   </div>
                 </div>
-
-                <div class="col-lg-6">
-                  <div class="blog4-box">
-                    <div class="blog4-img">
-                      <img src="assets/img/blog/blog4-img2.png" alt="">
-                    </div>
-
-                    <div class="headding-area">
-                      <a href="#" class="date"><img src="assets/img/icons/date.png" alt=""> 10 October 2024</a>
-                      <h5><a href="blog-details.html">Stay Informed About Criminal Law Updates</a></h5>
-                      <p>Our team of dedicated criminal defense attorneys is here to has provide unwavering support and expert legal guidance lawyer.</p>
-
-                      <a href="blog-details.html" class="learn">Learn More <span><i class="fa-regular fa-arrow-right"></i></span></a>
-                    </div>
-                  </div>
-                </div>
-
-
+                {% endfor %}
               </div>
 
             </div>
