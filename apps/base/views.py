@@ -141,6 +141,9 @@ def testimonial(request):
 def case_study_details(request):
     # base
     settings = base.Settings.objects.latest("id")
+    injury = base.Injury.objects.latest("id")
+    subject = base.Subject.objects.latest("id")
+    legalinsights = base.Legalinsights.objects.latest("id")
     return render(request, "base/case-study-details.html", locals())
 
 def blog_details(request):
@@ -148,6 +151,24 @@ def blog_details(request):
     settings = base.Settings.objects.latest("id")
     news = secondary_models.News.objects.all().order_by('?')[:2]
     review = base.Review.objects.latest("id")
+    contact = contacts_models.Contacts.objects.all()
+    # contacts
+    if request.method == "POST":
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+        phone = request.POST.get("phone")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+
+        # Создание объекта Contacts и его сохранение в базе данных
+        contacts_models.Contacts.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            phone=phone,
+            email=email,
+            message=message
+        )
+        return redirect('index')
     # secondary
     singleparts = secondary_models.SingleParts.objects.latest("id")
     return render(request, "base/blog_details.html", locals())

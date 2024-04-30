@@ -239,7 +239,7 @@
                             <article>
                                 <div class="service-single-post">
                                     <div class="image-area">
-                                        <img src="{% static 'assets/img/service/service-details-img1.png' %}" alt="">
+                                        <img src="{{ injury.image.url }}" alt="">
 
                                         <div class="shapes aniamtion-key-1">
                                             <img src="{% static 'assets/img/shapes/about4-shape.png' %}" alt="">
@@ -248,11 +248,11 @@
 
                                     <div class="space24"></div>
                                     <div class="headding4">
-                                        <h3>Injury Justice Legal</h3>
+                                        <h3>Юридическое правосудие по травмам</h3>
                                         <div class="space16"></div>
-                                        <p>Our practice encompasses an extensive array of criminal charges, ranging from  our best law misdemeanors to serious felonies. Whether it's DUI offenses, drug-related charges, assault of allegations, white-collar crimes, or more complex cases, our attorneys bring forth a wealth.</p>
+                                        <p>{{ injury.descriptions }}</p>
                                         <div class="space16"></div>
-                                        <p>We prioritize open communication, ensuring that our clients are fully informed about their an legal options, potential consequences, an the strategic pathways we chart for their defense.</p>
+                                        <p>{{ injury.descriptions2 }}</p>
                                     </div>
                                 </div>
                             </article>
@@ -262,27 +262,11 @@
                             <article>
                                 <div class="service-single-post">
                                     <div class="headding4">
-                                        <h3>Our Processing Includes:</h3>
+                                        <h3>{{ subject.title }}</h3>
                                         <div class="space16"></div>
-                                        <p>We prioritize open communication, ensuring that our clients are fully informed about their an legal options, potential consequences, an the strategic pathways we chart for their defense.</p>
-
-                                        <div class="space30"></div>
-                                        <h6>Consultation and Assessment:</h6>
+                                        <p>{{ subject.descriptions|safe }}</p>
                                         <div class="space16"></div>
-                                        <p>During this phase, the attorney-client relationship begins, and details about the legal process are discussed. Initial consultations are conducted where attorneys assess the client's case law.</p>
-
-
-                                        <div class="space30"></div>
-                                        <h6>Case Evaluation and Strategy Development:</h6>
-                                        <div class="space16"></div>
-                                        <p>During this phase, the attorney-client relationship begins, and details about the legal process are discussed. Initial consultations are conducted where attorneys assess the client's case law.</p>
-
-
-                                        <div class="space30"></div>
-                                        <h6>Legal Representation and Advocacy:</h6>
-                                        <div class="space16"></div>
-                                        <p>During this phase, the attorney-client relationship begins, and details about the legal process are discussed. Initial consultations are conducted where attorneys assess the client's case law.</p>
-
+                                        <p>{{ subject.descriptions2|safe }}</p>
 
                                     </div>
                                 </div>
@@ -294,22 +278,22 @@
                             <article>
                                 <div class="service-single-post">
                                     <div class="headding4">
-                                        <h3>Legal Insights: Empowering Your Decisions</h3>
+                                        <h3>Юридическая информация: {{ legalinsights.title }}</h3>
                                         <div class="space16"></div>
-                                        <p>We prioritize open communication, ensuring that our clients are fully informed about their an legal options, potential consequences, an the strategic pathways we chart for their defense.</p>
+                                        <p>{{ legalinsights.descriptions|safe }}</p>
                                     </div>
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="space40"></div>
                                                 <div class="image">
-                                                    <img src="{% static 'assets/img/service/service-details-img2.png' %}" alt="">
+                                                    <img src="{{ legalinsights.image.url }}" alt="">
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <div class="space40"></div>
                                                 <div class="image">
-                                                    <img src="{% static 'assets/img/service/service-details-img3.png' %}" alt="">
+                                                    <img src="{{ legalinsights.image2.url }}" alt="">
                                                 </div>
                                             </div>
 

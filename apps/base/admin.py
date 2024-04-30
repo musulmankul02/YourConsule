@@ -18,7 +18,21 @@ class NumbersFilterAdmin(admin.ModelAdmin):
     list_filter = ('client', 'team', 'experience', 'critical', 'review' )
     search_fields = ('client', 'team', 'experience', 'critical', 'review' )
 
+class InjuryFilterAdmin(admin.ModelAdmin):
+    list_filter = ('image', )
+    search_fields = ('image', )
 
+class SubjectFilterAdmin(admin.ModelAdmin):
+    list_filter = ('title', 'descriptions')
+    search_fields = ('title', 'descriptions')
+
+class LegalinsightsFilterAdmin(admin.ModelAdmin):
+    list_filter = ('title', 'descriptions', 'image')
+    search_fields = ('title', 'descriptions', 'image')
+
+admin.site.register(models.Injury, InjuryFilterAdmin)
+admin.site.register(models.Subject, SubjectFilterAdmin)
+admin.site.register(models.Legalinsights, LegalinsightsFilterAdmin)
 admin.site.register(models.Numbers, NumbersFilterAdmin)
 admin.site.register(models.Settings, SettingsFilterAdmin)
 admin.site.register(models.Service)
