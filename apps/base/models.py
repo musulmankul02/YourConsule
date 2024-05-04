@@ -49,45 +49,6 @@ class Settings(models.Model):
     class Meta:
         verbose_name_plural = "Настройки"
 
-class Service(models.Model):
-    name = models.CharField(
-        max_length=255,
-        verbose_name="Название услуги"
-    )
-    descriptions = models.TextField(
-        max_length=255,
-        verbose_name="Описание про нащих услуг"
-    )
-    def __str__(self):
-        return self.name
-    
-    class Meta:
-        verbose_name_plural ="Услуга"
-
-class Review(models.Model):
-    message = RichTextField(
-        verbose_name="Сообщение"
-    )
-    title = models.CharField(
-        max_length=255,
-        verbose_name="ФИО"
-    )
-    profession = models.CharField(
-        max_length=255,
-        verbose_name="Ваша Профессия"
-    )
-    image = ResizedImageField(
-        force_format = "WEBP",
-        quality = 100,
-        upload_to = "image/",
-        verbose_name="Фотография"
-    )
-    def __str__(self):
-        return self.title
-    
-    class Meta:
-        verbose_name_plural ="Отзыв"
-
 class Slide(models.Model):
     image = ResizedImageField(
         force_format = "WEBP",
@@ -131,11 +92,11 @@ class Numbers(models.Model):
     class Meta:
         verbose_name_plural = "Мы в числах"
 
-class Injury(models.Model):
+class About(models.Model):
     descriptions = models.TextField(
         verbose_name="Первое описание"
     )
-    descriptions2 = models.TextField(
+    descriptions2 = RichTextField(
         verbose_name="Второе описание"
     )
     image = ResizedImageField(
@@ -147,46 +108,5 @@ class Injury(models.Model):
     def __str__(self):
         return self.descriptions
     class Meta:
-        verbose_name_plural = 'Юридическое правосудие по травмам'
-
-class Subject(models.Model):
-    title = models.CharField(
-        max_length=255,
-        verbose_name="Название темы"
-    )
-    descriptions = RichTextField(
-        verbose_name="Первое описание"
-    )
-    descriptions2 = RichTextField(
-        verbose_name="Второе описание"
-    )
-
-    def __str__(self):
-        return self.title
-    class Meta:
-        verbose_name_plural = "Название новой темы"
-
-class Legalinsights(models.Model):
-    title = models.CharField(
-        max_length=255,
-        verbose_name="Название"
-    )
-    descriptions = RichTextField(
-        verbose_name="Описание"
-    )
-    image = ResizedImageField(
-        force_format = "WEBP",
-        quality = 100,
-        upload_to="image/",
-        verbose_name="Фото"
-    )
-    image2 = ResizedImageField(
-        force_format = "WEBP",
-        quality = 100,
-        upload_to="image1/",
-        verbose_name="2 Фото"
-    ) 
-    def __str__(self):
-        return f"{self.title} - {self.descriptions}"
-    class Meta:
-        verbose_name_plural = "Юридическая информация"
+        verbose_name = 'О нас'
+        verbose_name_plural = 'О нас'

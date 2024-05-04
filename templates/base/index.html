@@ -286,7 +286,7 @@
                     <span class="span" data-aos="fade-left" data-aos-duration="700">О нас</span>
                     <h2 data-aos="fade-left" data-aos-duration="900" >{{ about.descriptions }}</h2>
                     <div class="space16"></div>
-                    <p data-aos="fade-left" data-aos-duration="1100" >{{ about.descriptions2 }}</p>
+                    <p data-aos="fade-left" data-aos-duration="1100" >{{ about.descriptions2|safe }}</p>
 
                     <div class="row">
                       
@@ -350,7 +350,7 @@
                       </div>
                       <div class="headding">
                         <h4><a>{{ service.name }}</a></h4>
-                        <p>{{ service.descriptions }}</p>
+                        <p>{{ service.descriptions|safe }}</p>
   
                         <a><span><i></i></span></a>
                       </div>
@@ -397,10 +397,18 @@
                     </div>
 
                     <div class="headding-area">
-                      <h4><a href="{% url 'case-study-details' %}">Лицензии И Разрешения</a></h4>
-                      <a href="#" class="tags">#Закон и адвокаты</a>
-
-                      <a href="{% url 'case-study-details' %}" class="button"><i class="fa-regular fa-arrow-right"></i></a>
+                      {% if other_legal_informations %}
+                      <!-- <h2>Другие лицензии и разрешения:</h2> -->
+                      <ul>
+                          {% for info in other_legal_informations %}
+                              <li>
+                                  <h4><a href="{% url 'case-study-details' id=info.id %}">{{ info.title|safe }}</a></h4>
+                                  <a href="#" class="tags">#Закон и адвокаты</a>
+                                  <a href="{% url 'case-study-details' id=info.id %}" class="button"><i class="fa-regular fa-arrow-right"></i></a>
+                              </li>
+                          {% endfor %}
+                      </ul>
+                  {% endif %}
                     </div>
                   </div>
                 </div>
@@ -553,8 +561,8 @@
 
                               <div class="headding-area">
                                 <a href="#" class="date"><img src="{% static 'assets/img/icons/date.png' %}" alt=""> 10 October 2024</a>
-                                <h5><a href="{% url 'blog_details' %}">{{ news.descriptions }}</a></h5>
-                                <p>{{ news.descriptions2 }}</p>
+                                <h5><a href="{% url 'blog_details' id=news.id %}">{{ news.descriptions|safe|truncatewords:20 }}</a></h5>
+                                <!-- <p>{{ news.descriptions2|safe }}</p> -->
                                 
                               </div>
                             </div>

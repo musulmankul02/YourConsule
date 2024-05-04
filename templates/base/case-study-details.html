@@ -215,12 +215,12 @@
                 <div class="row">
                     <div class="col-lg-6 m-auto text-center">
                         <div class="headding">
-                            <h1>Юридическое правосудие по травмам</h1>
+                            <h1>Тематические исследования</h1>
                             
                             <div class="list-area">
                                 <a href="{% url 'index' %}">Главная страница</a>
                                 <p class="icon"><i></i></p>
-                                <p class="page-text">Юридическое правосудие по травмам</p>
+                                <p class="page-text">Тематические исследования</p>
                             </div>
                         </div>
                     </div>
@@ -239,7 +239,7 @@
                             <article>
                                 <div class="service-single-post">
                                     <div class="image-area">
-                                        <img src="{{ injury.image.url }}" alt="">
+                                        <img src="{% static 'assets/img/service/service-details-img1.png' %}" alt="">
 
                                         <div class="shapes aniamtion-key-1">
                                             <img src="{% static 'assets/img/shapes/about4-shape.png' %}" alt="">
@@ -248,11 +248,11 @@
 
                                     <div class="space24"></div>
                                     <div class="headding4">
-                                        <h3>Юридическое правосудие по травмам</h3>
+                                        <h3>{{ legalinformation.title|safe }}</h3>
                                         <div class="space16"></div>
-                                        <p>{{ injury.descriptions }}</p>
+                                        <p>{{ legalinformation.descriptions|safe }}</p>
                                         <div class="space16"></div>
-                                        <p>{{ injury.descriptions2 }}</p>
+                                        <p></p>
                                     </div>
                                 </div>
                             </article>
@@ -262,11 +262,11 @@
                             <article>
                                 <div class="service-single-post">
                                     <div class="headding4">
-                                        <h3>{{ subject.title }}</h3>
+                                        <h3></h3>
                                         <div class="space16"></div>
-                                        <p>{{ subject.descriptions|safe }}</p>
+                                        <p></p>
                                         <div class="space16"></div>
-                                        <p>{{ subject.descriptions2|safe }}</p>
+                                        <p>{{ legalinformation.descriptions2|safe }}</p>
 
                                     </div>
                                 </div>
@@ -278,22 +278,22 @@
                             <article>
                                 <div class="service-single-post">
                                     <div class="headding4">
-                                        <h3>Юридическая информация: {{ legalinsights.title }}</h3>
+                                        <h3></h3>
                                         <div class="space16"></div>
-                                        <p>{{ legalinsights.descriptions|safe }}</p>
+                                        <p></p>
                                     </div>
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="space40"></div>
                                                 <div class="image">
-                                                    <img src="{{ legalinsights.image.url }}" alt="">
+                                                    <img src="{{ legalinformation.image.url }}" alt="">
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <div class="space40"></div>
                                                 <div class="image">
-                                                    <img src="{{ legalinsights.image2.url }}" alt="">
+                                                    <img src="{{ legalinformation.image2.url }}" alt="">
                                                 </div>
                                             </div>
 

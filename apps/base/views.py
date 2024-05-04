@@ -3,21 +3,26 @@ from apps.base import models as base
 from apps.secondary import models as secondary_models
 from apps.contacts import models as contacts_models
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from apps.telegram.views import get_text
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 # Create your views here.
 def index(request):
     # base
     settings = base.Settings.objects.latest("id")
-    service = base.Service.objects.all().order_by('?')[:3]
-    review = base.Review.objects.all()
     slide = base.Slide.objects.all().order_by("id")[:3]
     numbers = base.Numbers.objects.latest("id")
+    about = base.About.objects.latest('id')
     # contacts
+    review = contacts_models.Review.objects.all()
+    service = contacts_models.Service.objects.all().order_by('?')[:3]
 
 
 
     # secondary
-    about = secondary_models.About.objects.latest('id')
     news = secondary_models.News.objects.all().order_by('?')[:2]
+    other_legal_informations = secondary_models.Legalinformation.objects.all().order_by("?")[:3]  
     return render(request, "base/index.html", locals())
 
 def contact(request):
@@ -41,6 +46,14 @@ def contact(request):
             email=email,
             message=message
         )
+        if contact:
+            get_text(f"""Оставоен отзыв
+                    Имя ползователя: {first_name}
+                    Фамилие ползователя: {last_name}
+                    Номер телефона: {phone}
+                    Почта ползователя: {email}
+                    Сообшение ползователя: {message}
+                    """)
 
         return redirect('index')
     return render(request, "base/contact.html", locals())
@@ -48,11 +61,12 @@ def contact(request):
 def about(request):
     # base
     settings = base.Settings.objects.latest("id")
+    numbers = base.Numbers.objects.latest("id")
 
     #contacts
 
     #secondary
-    about = secondary_models.About.objects.latest('id')
+    about = base.About.objects.latest('id')
     years = secondary_models.Year.objects.all()
     history = secondary_models.History.objects.all()
     team = secondary_models.Team.objects.all().order_by("?")[:4]
@@ -84,7 +98,7 @@ def blog(request):
 
 def service(request):
     settings = base.Settings.objects.latest("id")
-    service_list = base.Service.objects.all()
+    service_list = contacts_models.Service.objects.all()
 
     # Определяем количество элементов на странице
     items_per_page = 6
@@ -116,7 +130,7 @@ def team(request):
 def testimonial(request):
     settings = base.Settings.objects.latest("id")
         # Получаем все отзывы
-    reviews = base.Review.objects.all()
+    reviews = contacts_models.Review.objects.all()
 
     # Настройки пагинации: количество отзывов на одной странице
     items_per_page = 6  # Укажите желаемое количество отзывов на странице
@@ -138,22 +152,29 @@ def testimonial(request):
         reviews_page = paginator.page(paginator.num_pages)
     return render(request, "base/testimonial.html", locals())
 
-def case_study_details(request):
+def case_study_details(request, id):
     # base
     settings = base.Settings.objects.latest("id")
-    injury = base.Injury.objects.latest("id")
-    subject = base.Subject.objects.latest("id")
-    legalinsights = base.Legalinsights.objects.latest("id")
-    return render(request, "base/case-study-details.html", locals())
+    #secondary
+    legalinformation = secondary_models.Legalinformation.objects.get(id=id)
+    
+    # Получаем другие лицензии или разрешения (исключая текущую)
+    other_legal_informations = secondary_models.Legalinformation.objects.exclude(id=id)[:3]  # Получаем первые 3 объекта, исключая текущий
+    
+    return render(request, "base/case-study-details.html",locals())
+    
 
-def blog_details(request):
-    # base
+def blog_details(request, id):
+    # Получение конкретной новости по id
+    news_item = secondary_models.News.objects.get(id=id)
+
+    # Получаем другие данные для передачи в шаблон
     settings = base.Settings.objects.latest("id")
-    news = secondary_models.News.objects.all().order_by('?')[:2]
-    review = base.Review.objects.latest("id")
+    review = contacts_models.Review.objects.latest("id")
     contact = contacts_models.Contacts.objects.all()
-    # contacts
+
     if request.method == "POST":
+        # Обработка данных формы
         first_name = request.POST.get("first_name")
         last_name = request.POST.get("last_name")
         phone = request.POST.get("phone")
@@ -168,7 +189,30 @@ def blog_details(request):
             email=email,
             message=message
         )
+        if contact:
+            get_text(f"""Оставоен отзыв
+                    Имя ползователя: {first_name}
+                    Фамилие ползователя: {last_name}
+                    Номер телефона: {phone}
+                    Почта ползователя: {email}
+                    Сообшение ползователя: {message}
+                    """)
         return redirect('index')
-    # secondary
-    singleparts = secondary_models.SingleParts.objects.latest("id")
+
+    # Передача данных в шаблон
     return render(request, "base/blog_details.html", locals())
+
+def subscribe(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        if email:
+            # Отправляем сообщение о подписке
+            get_text(f"""
+                Оставлена подписка:
+                Почта: {email}
+            """)
+        # После обработки формы, выполняем редирект на указанную страницу (например, главную)
+        return HttpResponseRedirect(reverse('index'))
+
+    # Если метод запроса не POST, просто рендерим страницу снова (хотя этот случай не должен возникать)
+    return HttpResponseRedirect(reverse('index'))

@@ -269,7 +269,7 @@
                                   </div>
                                   <div class="headding">
                                     <h4><a href="service-details.html">{{ service_list.name }}</a></h4>
-                                    <p>{{ service_list.descriptions }}</p>
+                                    <p>{{ service_list.descriptions|safe }}</p>
               
                                     
                                   </div>
@@ -294,7 +294,7 @@
                                                 </div>
                                                 <div class="heading">
                                                     <h4><a href="service-details.html">{{ service_list.name }}</a></h4>
-                                                    <p>{{ service_list.descriptions }}</p>
+                                                    <p>{{ service_list.descriptions|safe }}</p>
                                                 </div>
                                             </div>
                                         </div>

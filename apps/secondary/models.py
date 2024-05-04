@@ -2,34 +2,21 @@ from django.db import models
 from django_resized.forms import ResizedImageField
 from ckeditor.fields import RichTextField
 # Create your models here.
-class About(models.Model):
-    descriptions = models.TextField(
-        verbose_name="Первое описание"
-    )
-    descriptions2 = models.TextField(
-        verbose_name="Второе описание"
-    )
-    image = ResizedImageField(
-        force_format = "WEBP",
-        quality = 100,
-        upload_to="about_image/",
-        verbose_name="Фотография"
-    )
-    def __str__(self):
-        return self.descriptions
-    class Meta:
-        verbose_name = 'О нас'
-        verbose_name_plural = 'О нас'
+
 
 class News(models.Model):
-    descriptions = models.TextField(
-        verbose_name="Начало"
+    title = RichTextField(
+        verbose_name="Название"
     )
-    descriptions2 = models.TextField(
-        verbose_name="Середина"
+    data = models.CharField(
+        max_length=255,
+        verbose_name="Дата"
     )
-    descriptions3 = models.TextField(
-        verbose_name="Конец"
+    descriptions = RichTextField(
+        verbose_name=" Первое Описание"
+    )
+    descriptions2 = RichTextField(
+        verbose_name="Второе Описание"
     )
     image = ResizedImageField(
         force_format = "WEBP",
@@ -37,8 +24,11 @@ class News(models.Model):
         upload_to="about_image/",
         verbose_name="Фотография"
     )
+    video = models.URLField(
+        verbose_name="Видео"
+    )
     def __str__(self):
-        return self.descriptions
+        return self.title
     class Meta:
         verbose_name_plural = 'Новости'
 
@@ -55,7 +45,7 @@ class Year(models.Model):
 class History(models.Model):
     year = models.ForeignKey(Year, on_delete=models.CASCADE, verbose_name='Год', related_name='history_items')
     title = models.CharField(max_length=255, verbose_name='Название')
-    descriptions = models.TextField(verbose_name='Описание')
+    descriptions = RichTextField(verbose_name='Описание')
     image = models.ImageField(upload_to='history_images/', verbose_name='Фотография')
 
     def __str__(self):
@@ -100,25 +90,29 @@ class Team(models.Model):
         verbose_name = "Наши юристы"
         verbose_name_plural = "Наш юрист"
 
-class SingleParts(models.Model):
+class Legalinformation(models.Model):
+    title = RichTextField(
+        verbose_name="Название"
+    )
+    descriptions = RichTextField(
+        verbose_name=" Первое Описание"
+    )
+    descriptions2 = RichTextField(
+        verbose_name="Второе Описание"
+    )
     image = ResizedImageField(
         force_format = "WEBP",
         quality = 100,
-        upload_to="image/",
+        upload_to="about_image/",
         verbose_name="Фотография"
     )
-    title = models.CharField(
-        max_length=255,
-        verbose_name='Название'
+    image2 = ResizedImageField(
+        force_format = "WEBP",
+        quality = 100,
+        upload_to="about_image/",
+        verbose_name="2 Фотография"
     )
-    descriptions = RichTextField(
-        verbose_name="Описание"
-    )
-    video = models.URLField(
-        verbose_name="Видео"
-    )
-
     def __str__(self):
-        return f"{self.title} - {self.descriptions}"
+        return self.title
     class Meta:
-        verbose_name_plural = "Одиночные детали"
+        verbose_name_plural = 'Юридическая информация'

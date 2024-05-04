@@ -249,7 +249,7 @@
                     <span class="span">О нас</span>
                     <h2>{{ about.descriptions }}</h2>
                     <div class="space16"></div>
-                    <p>{{ about.descriptions2 }}</p>
+                    <p>{{ about.descriptions2|safe }}</p>
 
                     <div class="row">
                       
@@ -328,7 +328,7 @@
                                             <div class="headding">
                                                 <h3>{{ history.title }}</h3>
                                                 <div class="space24"></div>
-                                                <p><span class="text">{{ history.descriptions }}</span></p>
+                                                <p><span class="text">{{ history.descriptions|safe }}</span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -381,9 +381,9 @@
                                   <p>{{ team.work }}</p>
             
                                   <ul class="icons">
-                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
-                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a href="{{team.facebook}}"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    <li><a href="{{team.whatsapp}}"><i class="fa-brands fa-whatsapp"></i></a></li>
+                                    <li><a href="{{team.instagram}}"><i class="fa-brands fa-instagram"></i></a></li>
                                   </ul>
                                 </div>
                               </div>

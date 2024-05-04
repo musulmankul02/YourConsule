@@ -11,11 +11,16 @@
       </div>
       <div class="col-lg-5">
         <div class="cta-form2">
-          <form action="#"></form>
-          <input type="email" name="email" placeholder="Адрес электронной почты">
-          <div class="cta2-btn">
-            <button type="submit" class="theme-btn7"><span class="span-btn">Подписаться</span> <span class="arrow"><i class="fa-regular fa-arrow-right"></i></span></button>
-          </div>
+          <form method="POST" action="{% url 'subscribe' %}">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Адрес электронной почты">
+            <div class="cta2-btn">
+                <button type="submit" class="theme-btn7">
+                    <span class="span-btn">Подписаться</span>
+                    <span class="arrow"><i class="fa-regular fa-arrow-right"></i></span>
+                </button>
+            </div>
+        </form>
         </div>
       </div>
     </div>
@@ -42,18 +47,26 @@
           <div class="space24"></div>
           <div class="social">
             <ul>
+              {% if settings.facebook %}
               <li>
-                <a ><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="{{settings.facebook}}" ><i  class="fa-brands fa-facebook-f"></i></a>
               </li>
+              {% endif %}
+              {% if settings.youtube %}
               <li>
-                <a ><i class="fa-brands fa-youtube"></i></a>
+                <a href="{{settings.youtube}}" ><i  class="fa-brands fa-youtube"></i></a>
               </li>
+              {% endif %}
+              {% if settings.whatsapp %}
               <li>
-                <a ><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="{{settings.whatsapp}}" ><i  class="fa-brands fa-whatsapp"></i></a>
               </li>
+              {% endif %}
+              {% if settings.instagram %}
               <li>
-                <a ><i class="fa-brands fa-instagram"></i></a>
+                <a href="{{settings.instagram}}"><i  class="fa-brands fa-instagram"></i></a>
               </li>
+              {% endif %}
             </ul>
           </div>
 

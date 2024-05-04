@@ -239,12 +239,12 @@
                 <div class="row">
                     <div class="col-lg-6 m-auto text-center">
                         <div class="headding">
-                            <h1>{{ singleparts.title }}</h1>
+                            <h1>{{ news_item.title|safe }}</h1>
                             
                             <div class="list-area">
                                 <a href="{% url 'index' %}">Главная страница</a>
                                 <p class="icon"><i class="fa-regular fa-angle-right"></i></p>
-                                <p class="page-text">{{ singleparts.title }}</p>
+                                <p class="page-text">Новости</p>
                             </div>
                         </div>
                     </div>
@@ -274,12 +274,13 @@
 
                                     <div class="space24"></div>
                                     <div class="headding4">
-                                        <h3>
-                                          {{ news.descriptions }}</h3>
+                                        <h3>{{ news_item.descriptions|safe }}</h3>
                                         <div class="space16"></div>
-                                        <p>{{ news.descriptions2 }}</p>
                                         <div class="space16"></div>
-                                        <p>{{ news.descriptions3 }}</p>
+                                        <div class="space16"></div>
+                                        <div class="space16"></div>
+                                        <div class="space16"></div>
+                                        <div class="space16"></div>
                                     </div>
 
                                     <div class="space30"></div>
@@ -313,25 +314,28 @@
                             <article>
                                 <div class="service-single-post">
                                     <div class="headding4">
-                                        <h3>{{ singleparts.title }}</h3>
+                                        <h3>{{ news_item.descriptions2|safe }}</h3>
                                         <div class="space16"></div>
-                                        <p>{{ singleparts.descriptions }}</p>
+                                        <div class="space16"></div>
+                                        <div class="space16"></div>
+                                        <div class="space16"></div>
+                                        <div class="space16"></div>
                                     </div>
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="space40"></div>
                                                 <div class="image">
-                                                    <img src="{{ singleparts.image.url }}" alt="">
+                                                    <img src="{{ news_item.image.url }}" alt="">
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <div class="space40"></div>
-                                                <div class="video-image-area popup-youtube " href="{{ singleparts.video.url }}">
+                                                <div class="video-image-area popup-youtube " href="{{ news_item.video.url }}">
                                                     <div class="image">
-                                                        <img src="{{ singleparts.image.url }}" alt="">
+                                                        <img src="{{ news_item.image.url }}" alt="">
                                                     </div>
-                                                    <a href="#" class="video-btn"><i class="fa-solid fa-play"></i></a>
+                                                    <a href="{{ news_item.video.url }}" class="video-btn"><i class="fa-solid fa-play"></i></a>
                                                 </div>
                                             </div>
 
@@ -422,13 +426,13 @@
                 <div class="col-lg-6">
                   <div class="blog4-box" data-aos="zoom-in-up" data-aos-duration="900">
                     <div class="blog4-img">
-                      <img src="{{ news.image.url }}" alt="">
+                      <img src="{{ news_item.image.url }}" alt="">
                     </div>
 
                     <div class="headding-area">
                       <a href="#" class="date"><img src="{% static 'assets/img/icons/date.png' %}" alt=""> 10 October 2024</a>
-                      <h5><a href="blog-details.html">{{ news.descriptions }}</a></h5>
-                      <p>{{ news.descriptions2|truncatewords:10 }}</p>
+                      <h5><a href="blog-details.html">{{ news_item.descriptions|safe }}</a></h5>
+                      <p>{{ news_item.descriptions2|truncatewords:10 }}</p>
                       
                     </div>
                   </div>
