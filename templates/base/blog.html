@@ -288,7 +288,7 @@
                     </div>
   
                     <div class="headding-area">
-                        <a href="#" class="date"><img src="{% static 'assets/img/icons/date.png' %}" alt=""> 10 October 2024</a>
+                        <a href="#" class="date"><img src="{% static 'assets/img/icons/date.png' %}" alt="">{{ news.data }}</a>
                         <h5><a href="{% url 'blog_details' id=news.id %}">{{ news.descriptions|safe|truncatewords:20 }}</a></h5>
                         <p></p>
     
