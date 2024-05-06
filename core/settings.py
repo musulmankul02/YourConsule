@@ -138,14 +138,14 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 JAZZMIN_SETTINGS = {
-    "site_title": "Visitka.KG",  # Заголовок админ-панели
-    "site_header": "Visitka.KG",  # Заголовок на экране входа
-    "site_brand": "Visitka.KG",  # Бренд в верхней части админ-панели
-    "welcome_sign": "Добро пожаловать в Visitka.KG",  # Приветственное сообщение
-    "site_title": "Vizitka.KG",  # Заголовок админ-панели
-    "site_header": "Vizitka.KG",  # Заголовок на экране входа
-    "site_brand": "Vizitka.KG",  # Бренд в верхней части админ-панели
-    "welcome_sign": "Добро пожаловать в Vizitka.KG",  # Приветственное сообщение
+    "site_title": "YurConsule.KG",  # Заголовок админ-панели
+    "site_header": "YurConsule.KG",  # Заголовок на экране входа
+    "site_brand": "YurConsule.KG",  # Бренд в верхней части админ-панели
+    "welcome_sign": "Добро пожаловать в YurConsule.KG",  # Приветственное сообщение
+    "site_title": "YurConsule.KG",  # Заголовок админ-панели
+    "site_header": "YurConsule.KG",  # Заголовок на экране входа
+    "site_brand": "YurConsule.KG",  # Бренд в верхней части админ-панели
+    "welcome_sign": "Добро пожаловать в YurConsule.KG",  # Приветственное сообщение
     "search_model": ["auth.User", "blog.Post"],  # Модели, доступные для поиска
     "topmenu_links": [
         {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
