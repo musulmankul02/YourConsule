@@ -183,3 +183,127 @@
       </div>
     </div>
   </header>
+
+
+  <!-- ############################################################################################################################# -->
+  <div class="mobile-header mobile-header-4 d-block d-lg-none ">
+    <div class="container-fluid">
+      <div class="col-12">
+        <div class="mobile-header-elements">
+          <div class="mobile-logo">
+            <a href="{% url 'index' %}"><img src="{% static 'assets/img/logo/mobile-logo.png' %}" alt="" /></a>
+          </div>
+          <div class="mobile-logo-unick">
+            <img src="{% static 'assets/img/logo/header-logo1.svg' %}" alt="">
+          </div>
+          <div class="mobile-nav-icon">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mobile-sidebar d-block d-lg-none">
+    <div class="menu-close">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+    <div class="mobile-logo-unick">
+      <img src="{% static 'assets/img/logo/header-logo1.svg' %}" alt="">
+    </div>
+    <div class="mobile-nav">
+
+      <li class="has-dropdown"><a href="{% url 'index' %}">Главная страница</a> 
+    </li>
+
+  <li><a href="{% url 'about' %}">О нас</a></li>
+
+          <li class="has-dropdown"><a href="">Услуги </a> 
+        </li>
+
+        <li class="has-dropdown"><a href="#">Страницы</a> 
+          <ul class="sub-menu">
+            <li><a href="{% url 'team' %}">Наша команда</a></li>
+            <li><a href="{% url 'testimonial' %}">Отзыв</a></li>
+          </ul>
+      </li>
+
+            <li class="has-dropdown"><a href="{% url 'blog' %}">Новости</a> 
+              <ul class="sub-menu">
+                <li  class="has-dropdown has-dropdown1"><a href="{% url 'blog' %}">Новости</a>
+              </ul>
+          </li>
+          <li><a href="{% url 'contact' %}">Наши контакты</a></li>
+
+
+      <li><a class="mobile-menu-button" href="{% url 'contact' %}">Наши контакты</a></li>
+
+
+      
+    </div>
+
+    <div class="mobile-menu-social">
+      <h3>Контактная Информация</h3>
+      <div class="footer4-contact-info">
+        <div class="mobile-menu-icon-box">
+          <div class="mobile-menu-icon">
+          </div>
+          <div class="mobile-menu-a">
+            <a>{{ settings.phone }}</a>
+          </div>
+        </div>
+
+        <div class="mobile-menu-icon-box">
+          <div class="mobile-menu-icon">
+          </div>
+          <div class="mobile-menu-a">
+            <a>{{ settings.email }}</a>
+          </div>
+        </div>
+
+        <div class="mobile-menu-social">
+          <h3>Наше Место Нахождения</h3>
+          
+          <div class="mobile-menu-icon-box">
+            <div class="mobile-menu-icon">
+            </div>
+            <div class="mobile-menu-a">
+              <a>{{ settings.locate }}</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mobile-menu-social">
+          <h3>Ссылки на социальные сети</h3>
+          
+          <div class="mobile-menu-social-icon">
+            <ul>
+              {% if settings.facebook %}
+              <li>
+                <a href="{{settings.facebook}}" ><i  class="fa-brands fa-facebook-f"></i></a>
+              </li>
+              {% endif %}
+              {% if settings.youtube %}
+              <li>
+                <a href="{{settings.youtube}}" ><i  class="fa-brands fa-youtube"></i></a>
+              </li>
+              {% endif %}
+              {% if settings.whatsapp %}
+              <li>
+                <a href="{{settings.whatsapp}}" ><i  class="fa-brands fa-whatsapp"></i></a>
+              </li>
+              {% endif %}
+              {% if settings.instagram %}
+              <li>
+                <a href="{{settings.instagram}}"><i  class="fa-brands fa-instagram"></i></a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
